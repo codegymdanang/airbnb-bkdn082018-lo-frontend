@@ -6,14 +6,14 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class HouseService {
-  private API = 'http://localhost:8080/';
+  private API = 'http://localhost:8080/api/';
   private HOUSE_API = this.API + '/houses';
 
   constructor(private http: HttpClient) {
   }
 
   getAll(): Observable<any> {
-    return this.http.get('//localhost:8080/houses');
+    return this.http.get('//localhost:8080/api/houses');
   }
 
   get(id: string) {
@@ -25,7 +25,7 @@ export class HouseService {
     if (house['href']) {
       result = this.http.put(house.href, house);
     } else {
-      result = this.http.post(this.HOUSE_API, house);
+      result = this.http.post(this.HOUSE_API + '/create', house);
     }
     return result;
   }

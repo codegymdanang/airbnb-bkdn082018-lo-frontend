@@ -9,11 +9,10 @@
 			            </span>
       <span class="blc"> | </span>
     </h1>
-    <a mat-button class="btn btn-success" [routerLink]="['/house-edit']" class="btn btn-success" type="submit"
+    <a  class="btn btn-success" [routerLink]="['/house-edit']" class="btn btn-success"
        style="margin-left: 5px;"><i
       class="fa fa-plus"
       style="font-size: 15px;">Thêm</i></a>
-    <a mat-button [routerLink]="['/house-edit']">Thêm</a>
   </div>
   <form data-aos="zoom-in-right" data-aos-duration="200" data-aos-delay="150">
     <div class="form-row">
@@ -37,10 +36,11 @@
       </div>
     </div>
   </form>
+
   <div class="container-fluid">
     <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="0">
       <div class="carousel-inner row w-100 mx-auto" role="listbox">
-        <div class="col-md-3 carousel-item">
+        <div class="col-md-3 carousel-item active">
           <div class="card mb-2">
             <div class="ribbon"><span>POPULAR</span></div>
             <div class="img-with-price bsblox-image-effect16">
@@ -50,8 +50,7 @@
               <div class="bsblox-caption">
                 <p>VIEW<strong>PROFILE</strong></p>
               </div>
-              <div class="bsblox-links"><a class="profile-link" href="#1"><i class="fa fa-search fa fa-search"></i></a>
-              </div>
+              <div class="bsblox-links"><a class="profile-link" href="#1"><i class="fa fa-search fa fa-search"></i></a></div>
             </div>
             <div class="card-body">
               <i class="fa fa-star"></i><i class="fa fa-star"></i>
@@ -74,108 +73,42 @@
           </div>
         </div>
 
-        <div class="col-md-3 carousel-item">
-
+        <div class="col-md-3 carousel-item" *ngFor="let house of houses">
           <div class="card mb-2">
             <div class="ribbon"><span>POPULAR</span></div>
             <div class="img-with-price bsblox-image-effect16">
-              <img class="card-img-top" src="assets/img/Lakeside%20Infinity-26.jpg" alt="Card image cap">
-              <h3 class="price-of-img"> Giá: 800.000/tháng</h3>
+              <img class="card-img-top" src="assets/img/Lakeside%20Infinity-25.jpg" alt="Card image cap">
+              <h3 class="price-of-img"> Giá: {{house.price}}K/tháng</h3>
               <i class="fa fa-heart icon-favorite"></i>
               <div class="bsblox-caption">
                 <p>VIEW<strong>PROFILE</strong></p>
               </div>
-              <div class="bsblox-links"><a class="profile-link" href="#1"><i class="fa fa-search fa fa-search"></i></a>
-              </div>
+              <div class="bsblox-links"><a class="profile-link" href="#1"><i class="fa fa-search fa fa-search"></i></a></div>
             </div>
             <div class="card-body">
               <i class="fa fa-star"></i><i class="fa fa-star"></i>
               <i class="fa fa-star"></i>
               <i class="fa fa-star"></i>
               <i class="fa fa-star fa-star-half-o"></i>
-              <h4 class="card-title">Card title</h4>
+              <h4 class="card-title">{{house.name}}</h4>
               <div class="property"><i class="fa fa-shower"></i>
-                <span>Phòng tắm: 5</span>
+                <span>Phòng tắm: {{house.bathRoomQuantity}}</span>
               </div>
               <div class="property"><i class="fa fa-bed"></i>
-                <span>Phòng ngủ: 5</span></div>
+                <span>Phòng ngủ: {{house.bedRoomQuantity}}</span></div>
               <div class="property"><i class="fa fa-map-marker"></i>
                 <span>Địa chỉ : Codegym</span></div>
               <div class="property">
-                <button class="btn btn-read-more">Xem thêm <i class="fa fa-chevron-right"></i></button>
+                <a [routerLink]="['/houses/', house.id]" class="btn btn-read-more">Xem thêm <i class="fa fa-chevron-right"></i></a>
+                <h3 mat-line>
+                  <a mat-button [routerLink]="['/houses/', house.id]">{{house.name}}</a>
+                </h3>
                 <i class="fa fa-user">liemmm</i>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-3 carousel-item">
 
-          <div class="card mb-2">
-            <div class="ribbon"><span>POPULAR</span></div>
-            <div class="img-with-price bsblox-image-effect16">
-              <img class="card-img-top" src="assets/img/Lakeside%20Infinity-32.jpg" alt="Card image cap">
-              <h3 class="price-of-img"> Giá: 800.000/tháng</h3>
-              <i class="fa fa-heart icon-favorite"></i>
-              <div class="bsblox-caption">
-                <p>VIEW<strong>PROFILE</strong></p>
-              </div>
-              <div class="bsblox-links"><a class="profile-link" href="#1"><i class="fa fa-search fa fa-search"></i></a>
-              </div>
-            </div>
-            <div class="card-body">
-              <i class="fa fa-star"></i><i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star fa-star-half-o"></i>
-              <h4 class="card-title">Card title</h4>
-              <div class="property"><i class="fa fa-shower"></i>
-                <span>Phòng tắm: 5</span>
-              </div>
-              <div class="property"><i class="fa fa-bed"></i>
-                <span>Phòng ngủ: 5</span></div>
-              <div class="property"><i class="fa fa-map-marker"></i>
-                <span>Địa chỉ : Codegym</span></div>
-              <div class="property">
-                <button class="btn btn-read-more">Xem thêm <i class="fa fa-chevron-right"></i></button>
-                <i class="fa fa-user">liemmm</i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 carousel-item ">
-
-          <div class="card mb-2">
-            <div class="ribbon"><span>POPULAR</span></div>
-            <div class="img-with-price bsblox-image-effect16">
-              <img class="card-img-top" src="assets/img/Lakeside%20Infinity-36.jpg" alt="Card image cap">
-              <h3 class="price-of-img"> Giá: 800.000/tháng</h3>
-              <i class="fa fa-heart icon-favorite"></i>
-              <div class="bsblox-caption">
-                <p>VIEW<strong>PROFILE</strong></p>
-              </div>
-              <div class="bsblox-links"><a class="profile-link" href="#1"><i class="fa fa-search fa fa-search"></i></a>
-              </div>
-            </div>
-            <div class="card-body">
-              <i class="fa fa-star"></i><i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star fa-star-half-o"></i>
-              <h4 class="card-title">Card title</h4>
-              <div class="property"><i class="fa fa-shower"></i>
-                <span>Phòng tắm: 5</span>
-              </div>
-              <div class="property"><i class="fa fa-bed"></i>
-                <span>Phòng ngủ: 5</span></div>
-              <div class="property"><i class="fa fa-map-marker"></i>
-                <span>Địa chỉ : Codegym</span></div>
-              <div class="property">
-                <button class="btn btn-read-more">Xem thêm <i class="fa fa-chevron-right"></i></button>
-                <i class="fa fa-user">liemmm</i>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <a class="carousel-control-prev btn-primary" href="#carouselExample" role="button" data-slide="prev">
         <i class="fa fa-chevron-left fa-lg text-muted"></i>

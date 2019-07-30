@@ -42,7 +42,7 @@ export class HouseEditComponent implements OnInit, OnDestroy {
   }
 
   gotoList() {
-    this.router.navigate(['/house-list']);
+    this.router.navigate(['/house']);
   }
 
   save(form: NgForm) {
