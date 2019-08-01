@@ -5,18 +5,14 @@
     </mat-card-header>
     <mat-card-content>
       <input type="hidden" name="href" [(ngModel)]="house.href">
-<!--      <mat-form-field>-->
-<!--        <h1>Giá</h1>-->
-<!--        <input matInput placeholder="" [(ngModel)]="house.price"-->
-<!--               required name="price" #price>-->
-<!--      </mat-form-field>-->
+      <input type="hidden" name="id" [(ngModel)]="house.id">
       <div class="form-row" style="margin-right:0px;margin-left:0px;padding-top:24px;">
         <div class="col-md-8 offset-md-1">
           <p style="margin-left:2%;font-family:Roboto, sans-serif;font-size:24px;"><strong>Tên nhà</strong></p>
         </div>
         <div class="col-md-10 offset-md-1"><input [(ngModel)]="house.name"
                                                   class="form-control"
-                                                  placeholder="Number"
+                                                  placeholder="Tên"
                                                   style="font-family:Roboto, sans-serif;" required name="name" #name>
         </div>
       </div>
@@ -50,7 +46,7 @@
         </div>
         <div class="col-md-10 offset-md-1"><input [(ngModel)]="house.description"
                                                   class="form-control"
-                                                  placeholder="Number"
+                                                  placeholder="Mô tả"
                                                   style="font-family:Roboto, sans-serif;" name="description" #description>
         </div>
       </div>
@@ -62,16 +58,16 @@
                                                   type="number" step="0.1"
                                                   min="1"
                                                   class="form-control"
-                                                  placeholder="Number"
+                                                  placeholder="Giá"
                                                   style="font-family:Roboto, sans-serif;" name="price" #price>
         </div>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit"
+      <button class="btn btn-primary" color="primary" type="submit"
               [disabled]="!houseForm.form.valid">Save
       </button>
-      <button mat-raised-button color="secondary" (click)="remove(house.href)"
+      <button class="btn btn-secondary" color="secondary" (click)="remove(house.href, house.id)"
               *ngIf="house.href" type="button">Delete
       </button>
       <a mat-button routerLink="/house-list">Cancel</a>

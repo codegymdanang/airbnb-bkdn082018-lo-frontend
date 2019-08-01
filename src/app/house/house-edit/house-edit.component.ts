@@ -24,10 +24,12 @@ export class HouseEditComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
+
         this.houseService.get(id).subscribe((house: any) => {
           if (house) {
             this.house = house;
-            this.house.href = house._links.self.href;
+            // this.house.href = house._links.self.href;
+            this.house.href = "http://localhost:8080/api/houses/"+house.id;
           } else {
             console.log(`house with id '${id}' not found, returning to list`);
             this.gotoList();
@@ -51,8 +53,8 @@ export class HouseEditComponent implements OnInit, OnDestroy {
     }, error => console.error(error));
   }
 
-  remove(href) {
-    this.houseService.remove(href).subscribe(result => {
+  remove(href, id) {
+    this.houseService.remove(href, this.house.id).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }

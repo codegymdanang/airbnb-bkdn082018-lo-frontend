@@ -9,9 +9,14 @@ const routes: Routes = [{path: '', redirectTo: '/house', pathMatch: 'full'},
     path: 'house',
     component: HouseListComponent
   },{
-    path: 'house-edit',
+    path: 'house-add',
     component: HouseEditComponent
-  }];
+  },
+  {
+    path: 'house-edit/:id',
+    component: HouseEditComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

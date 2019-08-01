@@ -30,7 +30,7 @@ export class HouseService {
     return result;
   }
 
-  remove(href: string) {
-    return this.http.delete(href);
+  remove(href: string, id : any) {
+    return this.http.delete(href, id);
   }
 }
